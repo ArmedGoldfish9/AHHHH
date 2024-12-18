@@ -11,23 +11,17 @@ function showAlert(playerElement) {
       }
     });
   });
-  function checkAnswer() {
-    const userAnswer = document.getElementById("quizAnswer").value.toLowerCase();
-    const correctAnswer = "12 minutes";
-  
-    if (userAnswer === correctAnswer) {
-      alert("Correct! A quarter lasts 12 minutes.");
-    } else {
-      alert("Incorrect. Hint: It is less than 15 minutes.");
-    }
-  }
-  function checkAnswer() {
-    const userAnswer = document.getElementById("quizAnswer").value.toLowerCase();
-    const correctAnswer = "12 minutes";
-  
-    if (userAnswer === correctAnswer) {
-      alert("Correct! A quarter lasts 12 minutes.");
-    } else {
-      alert("Incorrect. Hint: It is less than 15 minutes.");
-    }
-  }
+ 
+  document.querySelectorAll("nav a").forEach(link => {
+    link.addEventListener("mouseover", () => link.style.color = "orange");
+    link.addEventListener("mouseout", () => link.style.color = "black");
+});
+
+
+  document.querySelectorAll("nav a").forEach(link => {
+    link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute("href").slice(1);
+        document.getElementById(targetId).scrollIntoView({ behavior: "smooth" });
+    });
+});
